@@ -221,7 +221,7 @@ def dapi_all_slices(img_3d, dapi_case, dapi_treshold, dapi_mask_output_name, dap
     y, x  = get_nucleus_centroid(dapi_regions, dapi_mask)
     h5_grp.create_dataset('nucleus_centroid', data=[x, y])
 
-    # plot_nucleus_contours(img, dapi_contour, x, y, dapi_out_file_name)
+    plot_nucleus_contours(img, dapi_contour, x, y, dapi_out_file_name)
 
 
 def tubulin_all_slices(root, img_3d, case, treshold, entropy_size, mask_output_name, out_file_name, dilatation, closing, erosion, sigma, low, high, h5_grp, path):
@@ -236,4 +236,4 @@ def tubulin_all_slices(root, img_3d, case, treshold, entropy_size, mask_output_n
     add_mtoc_from_csv(os.path.join('mtoc', path+'.csv'), cell_mask, root, h5_grp)
     get_spots(img, cell_mask, h5_grp)
 
-    # plot_cell_contours(img, cell_contour, out_file_name)
+    plot_cell_contours(img, cell_contour, out_file_name)
